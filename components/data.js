@@ -1,4 +1,5 @@
-export const baseUrl = "http://localhost:3000/api/";
+export const baseUrl = "https://weed-app.vercel.app/api/";
+// export const baseUrl = "http://localhost:3000/api/";
 export const cards = [{
         title: "Add New Product",
         desc: "Sell any drug",

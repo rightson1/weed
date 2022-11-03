@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const MONGO_URL = "mongodb://localhost:27017/weed";
-// const MONGO_URL =
-//     "mongodb+srv://Rightson:Rightson@nodeexpressproject.afbca.mongodb.net/Janta?retryWrites=true&w=majority";
+// const MONGO_URL = "mongodb://localhost:27017/weed";
+const MONGO_URL =
+    "mongodb+srv://Rightson:Rightson@nodeexpressproject.afbca.mongodb.net/Weed?retryWrites=true&w=majority";
 if (!MONGO_URL) {
     throw new Error(
         "Please define the MONGO_URL environment variable inside .env.local"
