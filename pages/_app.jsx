@@ -1,6 +1,14 @@
 import "../styles/globals.css";
 import Head from "next/head";
+import { AuthProvider } from "../context/AuthContext";
+import { useRouter } from "next/router";
+import Protected from "../components/Protected";
+import "react-toastify/dist/ReactToastify.css";
+import "../styles/Loader.scss";
 function MyApp({ Component, pageProps }) {
+  const noAuth = ["/login", "/register", "/", "/shop"];
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -10,7 +18,10 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
 
       </Head>
-      <Component {...pageProps} />
+
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </>
   );
 }
