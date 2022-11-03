@@ -1,11 +1,17 @@
 import { useRouter } from "next/router";
 import { AiOutlineRight } from "react-icons/ai";
+import Head from "next/head";
 export default function Home() {
+
 
   const router = useRouter()
   return (
 
     <div className="overflow-x-hidden  flex flex-col bg-white min-h-screen" >
+      <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="item  w-full flex justify-center py-4">
         <img src="kindu.png" alt="" className="max-w-[200px] md:max-w-[300px]" />
       </div>

@@ -5,6 +5,8 @@ import { auth } from "../firebase"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { toastOptions } from "../components/data";
+import { baseUrl } from "../components/data";
+import axios from "axios";
 const Login = () => {
     const router = useRouter()
     const [loading, setLoading] = React.useState(false)
@@ -16,11 +18,23 @@ const Login = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         try {
+            axios.get(`${baseUrl}/pedi?email=${email}`).then(async (res) => {
 
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            router.push("/pedi")
+                if (res.data) {
+                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    router.push("/pedi")
 
-            setLoading(false)
+                } else {
+                    toast.error("If you have a customer account create an sellers account with different email", toastOptions)
+                }
+                setLoading(false)
+            }).catch((err) => {
+                setLoading(false)
+                console.log(err)
+            })
+
+
+
 
         } catch (err) {
 
