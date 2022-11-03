@@ -16,10 +16,10 @@ const Register = () => {
         const password = e.target.password.value
         try {
 
-            // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            // const user = userCredential.user;
-            // const data = { email, username, password }
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
             const data = { email, username, password }
+
 
             axios.post(`${baseUrl}/buyer`, data).then((res) => {
                 router.push('/shop/login')
