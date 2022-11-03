@@ -1,4 +1,4 @@
-import Pedi from "../../../models/pedi";
+import Pedi from "../../../models/Pedi";
 import db from "../../../models/db";
 
 export default async function handler(req, res) {
